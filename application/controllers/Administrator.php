@@ -82,7 +82,7 @@ class Administrator extends CI_Controller {
                                         Email. $iden[email], No Telp. $iden[no_telp]</td></tr>
                                     </table>
                                 </body></html> \n";
-                
+
                 $this->email->from($iden['email'], $iden['nama_website']);
                 $this->email->to($usr['email']);
                 $this->email->cc('');
@@ -92,7 +92,7 @@ class Administrator extends CI_Controller {
                 $this->email->message($message);
                 $this->email->set_mailtype("html");
                 $this->email->send();
-                
+
                 $config['protocol'] = 'sendmail';
                 $config['mailpath'] = '/usr/sbin/sendmail';
                 $config['charset'] = 'utf-8';
@@ -403,6 +403,7 @@ class Administrator extends CI_Controller {
                         'status'=>$this->db->escape_str($this->input->post('status')),
                         'tgl'=>$this->db->escape_str(date_format($date_c, 'Y-m-d')),
                         'tujuan'=>$this->db->escape_str($this->input->post('tujuan')),
+												'nama_akun'=>$this->db->escape_str($this->input->post('nama_akun')),
                         'jumlah'=>$this->db->escape_str($this->input->post('jumlah'))
 			);
 			// echo json_encode($data);

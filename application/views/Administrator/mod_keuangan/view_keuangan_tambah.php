@@ -10,16 +10,16 @@
               <?php
 
                 $attributes = array('class'=>'form-horizontal','role'=>'form');
-                  echo form_open_multipart($this->uri->segment(1).'/tambah_keuangan',$attributes); 
+                  echo form_open_multipart($this->uri->segment(1).'/tambah_keuangan',$attributes);
                   echo "<table class='table table-condensed table-bordered'>
                       <tbody>
                         <input type='hidden' name='id_keuangan' value=''>
                         <tr>
-                          <th width='120px' scope='row'>Tanggal</th>  
+                          <th width='120px' scope='row'>Tanggal</th>
                           <td><input type='text' name='tgl' class='datepicker form-control' placeholder='Masukan Tanggal...'></td>
                         </tr>
                         <tr>
-                          <th>Status</th>  
+                          <th>Status</th>
                           <td>
                             <select class='form-control show-tick' name='status' >
                                 <option value=''>-- Please select --</option>
@@ -28,22 +28,46 @@
                             </select>
                           </td>
                         </tr>
+
                         <tr>
-                          <th>Tujuan</th>  
-                          <td><input type='text' name='tujuan' class='form-control'></td>
+                          <th>Nama Akun</th>
+                          <td>
+                            <select class='form-control show-tick' name='nama_akun' >
+                                <option value=''>-- Please select --</option>
+                                <option value='Kas Kecil'>KAS KECIL</option>
+                                <option value='Bank'>BANK</option>
+                            </select>
+                          </td>
                         </tr>
                         <tr>
-                          <th>Jumlah (Rp.)</th>  
+                          <th>Tujuan</th>
+                          <td><input type='text' name='tujuan' class='form-control'></td>
+                        </tr>
+
+                        <tr>
+                          <th>Keterangan</th>
+                          <td><input type='text' name='keterangan' class='form-control'></td>
+                        </tr>
+
+                        <tr>
+                          <th>Deskripsi / Catatan</th>
+                          <td>
+                            <textarea type='text' name='catatan' class='form-control'></textarea
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th>Jumlah (Rp.)</th>
                           <td><input type='number' name='jumlah' class='form-control' placeholder='Ex. 100000'></td>
                         </tr>
 
                       </tbody>
                       </table>
-                  
+
                   <div class='box-footer'>
                         <button type='submit' name='submit' class='btn btn-info'>Tambahkan</button>
                         <a href='".base_url().$this->uri->segment(1)."/manajemenkeuangan'><button type='button' class='btn btn-default pull-right'>Cancel</button></a>
-                        
+
                       </div>";
                 echo form_close();
               ?>

@@ -10,22 +10,22 @@
               <?php
 
                 $attributes = array('role'=>'form');
-                  echo form_open_multipart($this->uri->segment(1).'/edit_keuangan',$attributes); 
+                  echo form_open_multipart($this->uri->segment(1).'/edit_keuangan',$attributes);
                   echo "<table class='table table-condensed table-bordered'>
                       <tbody>
                         <input type='hidden' name='id' value='$rows[id_keuangan]'>
                         <tr>
-                          <th width='120px' scope='row'>Tanggal</th>  
+                          <th width='120px' scope='row'>Tanggal</th>
                           <td><input type='text' name='tgl' class='datepicker form-control' value='$rows[tgl]'></td>
                         </tr>
                         <tr>
-                          <th>Status</th>  
+                          <th>Status</th>
                           <td>
                             <select class='form-control show-tick' name='status' >";
-                                if ($rows['status']=='keluar'){ 
-                                  echo "<option  value='keluar'>--- PENGELUARAN ---</option>"; 
-                                }else{ 
-                                  echo "<option  value='masuk'>--- PEMASUKAN ---</option>"; 
+                                if ($rows['status']=='keluar'){
+                                  echo "<option  value='keluar'>--- PENGELUARAN ---</option>";
+                                }else{
+                                  echo "<option  value='masuk'>--- PEMASUKAN ---</option>";
                                 }
                                 echo"<option value='Masuk'>PEMASUKAN</option>
                                 <option value='Keluar'>PENGELUARAN</option>
@@ -33,21 +33,49 @@
                           </td>
                         </tr>
                         <tr>
-                          <th>Tujuan</th>  
-                          <td><input type='text' name='tujuan' class='form-control' value='$rows[tujuan]'></td>
+                          <th>Nama Akun</th>
+                          <td>
+                            <select class='form-control show-tick' name='nama_akun' >";
+                                if ($rows['nama_akun']=='kas kecil'){
+                                  echo "<option  value='Kas Kecil'>--- KAS KECIL ---</option>";
+                                }else{
+                                  echo "<option  value='Bank'>--- BANK ---</option>";
+                                }
+                                echo"<option value='Kas Kecil'>KAS KECIL</option>
+                                <option value='Bank'>BANK</option>
+                            </select>
+                          </td>
                         </tr>
                         <tr>
-                          <th>Jumlah (Rp.)</th>  
+                          <th>Tujuan</th>
+                          <td><input type='text' name='tujuan' class='form-control' value='$rows[tujuan]'></td>
+                        </tr>
+
+                        <tr>
+                          <th>Keterangan</th>
+                          <td><input type='text' name='keterangan' class='form-control' value='$rows[keterangan]'></td>
+                        </tr>
+
+                        <tr>
+                          <th>Deskripsi / Catatan</th>
+                          <td>
+                            <textarea type='text' name='catatan' class='form-control' value='$rows[catatan]'></textarea
+                          </td>
+                        </tr>
+
+
+                        <tr>
+                          <th>Jumlah (Rp.)</th>
                           <td><input type='number' name='jumlah' class='form-control'  value='$rows[jumlah]'></td>
                         </tr>
 
                       </tbody>
                       </table>
-                  
+
                   <div class='box-footer'>
                         <button type='submit' name='submit' class='btn btn-info'>Update</button>
                         <a href='".base_url().$this->uri->segment(1)."/manajemenkeuangan'><button type='button' class='btn btn-default pull-right'>Cancel</button></a>
-                        
+
                       </div>";
                 echo form_close();
               ?>
